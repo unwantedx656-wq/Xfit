@@ -1,0 +1,96 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100dvh;
+  padding: var(--space-md);
+  padding-bottom: 120px;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: var(--space-md);
+}
+
+.progressSection {
+  margin-bottom: var(--space-lg);
+}
+
+.ejerciciosList {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+  flex: 1;
+}
+
+.ejercicioItem {
+  align-items: flex-start !important;
+}
+
+.ejInfo {
+  flex: 1;
+}
+
+.ejNum {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  background: var(--color-primary-deep);
+  border-radius: var(--radius-full);
+  font-size: 0.65rem;
+  font-weight: 700;
+  color: #fff;
+  flex-shrink: 0;
+}
+
+.addEjercicioBtn {
+  width: 100%;
+  padding: var(--space-md);
+  background: var(--glass-bg);
+  border: 2px dashed var(--glass-border);
+  border-radius: var(--radius-md);
+  color: var(--color-primary);
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition-fast);
+  font-family: var(--font-base);
+  margin-top: var(--space-sm);
+}
+
+.addEjercicioBtn:hover {
+  border-color: var(--color-primary);
+  background: rgba(98,0,238,0.08);
+}
+
+.addEjercicioBtn:active { transform: scale(0.98); }
+
+.finFooter {
+  position: fixed;
+  bottom: calc(var(--nav-height) + var(--space-sm));
+  left: 50%;
+  transform: translateX(-50%);
+  width: calc(100% - var(--space-lg) * 2);
+  max-width: 390px;
+  z-index: 40;
+}
+
+.finContainer {
+  min-height: 100dvh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-lg);
+}
+
+.finCard {
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-xl);
+  padding: var(--space-2xl) var(--space-xl);
+  width: 100%;
+  animation: scaleIn 0.4s ease both;
+}

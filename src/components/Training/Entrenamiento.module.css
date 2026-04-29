@@ -1,0 +1,41 @@
+.diasList {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.diaCard {
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-lg);
+  transition: var(--transition-fast);
+}
+
+.ejerciciosPreview {
+  margin-top: var(--space-sm);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+  animation: fadeInUp 0.3s ease both;
+}
+
+.ejPreviewItem {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+}
+
+.ejNum {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  height: 22px;
+  background: var(--color-primary-deep);
+  border-radius: var(--radius-full);
+  font-size: 0.65rem;
+  font-weight: 700;
+  color: #fff;
+  flex-shrink: 0;
+}

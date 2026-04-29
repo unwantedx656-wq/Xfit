@@ -1,0 +1,228 @@
+/* Shared styles for all onboarding steps */
+
+.stepWrap {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-height: calc(100dvh - 100px);
+}
+
+.heroSection {
+  margin-bottom: var(--space-xl);
+  animation: fadeInUp 0.4s ease both;
+}
+
+.emoji {
+  font-size: 3rem;
+  margin-bottom: var(--space-md);
+  display: block;
+  animation: scaleIn 0.4s ease both;
+}
+
+.form {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.actions {
+  display: flex;
+  gap: var(--space-md);
+  padding-top: var(--space-xl);
+  padding-bottom: var(--space-lg);
+  margin-top: auto;
+}
+
+.actions .btn:first-child:not(:last-child) {
+  flex: 0 0 auto;
+  width: auto;
+  padding: 14px var(--space-lg);
+}
+
+.error {
+  color: #FF6B8A;
+  font-size: 0.85rem;
+  font-weight: 500;
+  margin-top: var(--space-sm);
+  animation: fadeIn 0.2s ease both;
+}
+
+.tip {
+  font-size: 0.8rem;
+  color: var(--color-text-faint);
+  margin-top: var(--space-md);
+  text-align: center;
+}
+
+/* Input Row with unit toggle */
+.inputRow {
+  display: flex;
+  gap: var(--space-sm);
+  align-items: center;
+}
+
+.inputRow .input-field {
+  flex: 1;
+}
+
+.unitToggle {
+  display: flex;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  border: 1px solid var(--glass-border);
+  flex-shrink: 0;
+}
+
+.unitBtn {
+  background: var(--color-surface);
+  border: none;
+  color: var(--color-text-muted);
+  font-size: 0.8rem;
+  font-weight: 600;
+  padding: 10px 12px;
+  cursor: pointer;
+  transition: var(--transition-fast);
+  font-family: var(--font-base);
+}
+
+.unitBtn:active { transform: scale(0.95); }
+
+.unitActive {
+  background: var(--color-primary-deep);
+  color: #fff;
+}
+
+.unitLabel {
+  font-size: 0.9rem;
+  color: var(--color-text-muted);
+  font-weight: 600;
+  flex-shrink: 0;
+  padding: 0 8px;
+}
+
+/* Goal Cards */
+.goalCards {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+.goalCard {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+  padding: var(--space-md) var(--space-lg);
+  background: var(--color-surface);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-lg);
+  cursor: pointer;
+  transition: var(--transition-base);
+  position: relative;
+  text-align: left;
+  font-family: var(--font-base);
+}
+
+.goalCard:active { transform: scale(0.98); }
+
+.goalActive {
+  background: rgba(98,0,238,0.2);
+  border-color: var(--color-primary);
+  box-shadow: 0 0 16px rgba(98,0,238,0.2);
+}
+
+.goalEmoji { font-size: 1.6rem; }
+.goalLabel { font-size: 0.95rem; font-weight: 500; color: var(--color-text); flex: 1; }
+.goalCheck {
+  position: absolute;
+  right: var(--space-md);
+  width: 24px;
+  height: 24px;
+  background: var(--gradient-primary);
+  border-radius: var(--radius-full);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+  color: #fff;
+  font-weight: 700;
+  animation: checkmark 0.25s ease both;
+}
+
+/* Chip selectors */
+.chipRow {
+  display: flex;
+  gap: var(--space-sm);
+  flex-wrap: wrap;
+}
+
+.chip {
+  padding: 10px 18px;
+  background: var(--color-surface);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-full);
+  color: var(--color-text-muted);
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition-fast);
+  font-family: var(--font-base);
+}
+
+.chip:active { transform: scale(0.95); }
+
+.chipActive {
+  background: var(--color-primary-deep);
+  border-color: var(--color-primary);
+  color: #fff;
+  box-shadow: var(--shadow-glow);
+}
+
+/* Equipment Grid */
+.equipGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-sm);
+}
+
+.equipCard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: var(--space-md) var(--space-sm);
+  background: var(--color-surface);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: var(--transition-fast);
+  position: relative;
+  font-family: var(--font-base);
+  min-height: 80px;
+}
+
+.equipCard:active { transform: scale(0.96); }
+
+.equipActive {
+  background: rgba(98,0,238,0.2);
+  border-color: var(--color-primary);
+}
+
+.equipEmoji { font-size: 1.5rem; }
+.equipLabel { font-size: 0.72rem; font-weight: 500; color: var(--color-text-muted); text-align: center; line-height: 1.2; }
+
+.equipCheck {
+  position: absolute;
+  top: 6px;
+  right: 6px;
+  width: 18px;
+  height: 18px;
+  background: var(--gradient-primary);
+  border-radius: var(--radius-full);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.6rem;
+  color: #fff;
+  font-weight: 700;
+}

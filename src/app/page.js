@@ -1,66 +1,59 @@
-import Image from "next/image";
-import styles from "./page.module.css";
+'use client';
 
-export default function Home() {
+import { useEffect, useState } from 'react';
+import { obtenerConfig, obtenerBrainState, obtenerRutinaActiva } from '@/db/db';
+import { inicializarCerebro } from '@/logic/brain/brainEngine';
+import { useAppStore } from '@/store/useStore';
+
+// Vistas
+import OnboardingFlow from '@/components/Onboarding/OnboardingFlow';
+import AppShell from '@/components/Layout/AppShell';
+
+export default function HomePage() {
+  const [cargando, setCargando] = useState(true);
+  const { setPerfil, setRutinaActiva, setBrainState, setAppLista } = useAppStore();
+
+  useEffect(() => {
+    async function inicializar() {
+      try {
+        const config = await obtenerConfig();
+        if (config?.onboardingCompletado) {
+          setPerfil(config);
+          const brain = await inicializarCerebro();
+          setBrainState(brain);
+          const rutina = await obtenerRutinaActiva();
+          if (rutina) setRutinaActiva(rutina);
+          setAppLista(true);
+        }
+      } catch (err) {
+        console.error('Error inicializando Xfit:', err);
+      } finally {
+        setCargando(false);
+      }
+    }
+    inicializar();
+  }, [setPerfil, setRutinaActiva, setBrainState, setAppLista]);
+
+  const { perfil, appLista } = useAppStore();
+
+  if (cargando) return <SplashScreen />;
+  if (!perfil || !appLista) return <OnboardingFlow />;
+  return <AppShell />;
+}
+
+function SplashScreen() {
   return (
-    <div className={styles.page}>
-      <main className={styles.main}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className={styles.intro}>
-          <h1>To get started, edit the page.js file.</h1>
-          <p>
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className={styles.ctas}>
-          <a
-            className={styles.primary}
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className={styles.logo}
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className={styles.secondary}
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
+    <div className="app-container" style={{ minHeight: '100dvh', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', background: 'var(--color-bg)' }}>
+      <div style={{ textAlign: 'center', animation: 'fadeInUp 0.5s ease both' }}>
+        <div style={{ fontSize: '4rem', marginBottom: '1rem' }}>💜</div>
+        <h1 className="text-display gradient-text" style={{ marginBottom: '0.5rem' }}>Xfit</h1>
+        <p className="text-body">Cargando tu entrenamiento...</p>
+        <div style={{
+          width: '40px', height: '4px', background: 'var(--gradient-primary)',
+          borderRadius: 'var(--radius-full)', margin: '1.5rem auto 0',
+          animation: 'pulse-glow 1.5s infinite'
+        }} />
+      </div>
     </div>
   );
 }

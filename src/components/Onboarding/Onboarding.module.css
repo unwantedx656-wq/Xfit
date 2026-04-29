@@ -1,0 +1,43 @@
+.container {
+  min-height: 100dvh;
+  background: var(--color-bg);
+  display: flex;
+  flex-direction: column;
+  max-width: 430px;
+  margin: 0 auto;
+}
+
+.header {
+  padding: var(--space-lg) var(--space-md) var(--space-md);
+  flex-shrink: 0;
+}
+
+.stepInfo {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--space-sm);
+}
+
+.stepLabel {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--color-primary);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.stepCount {
+  font-size: 0.8rem;
+  color: var(--color-text-faint);
+  font-weight: 500;
+}
+
+.content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: var(--space-md);
+  animation: fadeInUp 0.35s ease both;
+  overflow-y: auto;
+}

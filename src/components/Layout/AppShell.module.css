@@ -1,0 +1,80 @@
+.main {
+  flex: 1;
+  overflow-y: auto;
+  padding-bottom: calc(var(--nav-height) + 8px);
+}
+
+.bottomNav {
+  position: fixed;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  max-width: 430px;
+  height: var(--nav-height);
+  background: rgba(15, 15, 18, 0.92);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border-top: 1px solid var(--glass-border);
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  z-index: 50;
+  padding-bottom: env(safe-area-inset-bottom, 0);
+}
+
+.navItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+  padding: 8px 16px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  position: relative;
+  transition: var(--transition-fast);
+  flex: 1;
+  min-height: 100%;
+}
+
+.navItem:active {
+  transform: scale(0.92);
+}
+
+.navEmoji {
+  font-size: 1.4rem;
+  transition: var(--transition-fast);
+  line-height: 1;
+}
+
+.navLabel {
+  font-size: 0.65rem;
+  font-weight: 600;
+  color: var(--color-text-faint);
+  transition: var(--transition-fast);
+  letter-spacing: 0.03em;
+}
+
+.navItem.active .navEmoji {
+  transform: scale(1.1);
+  filter: drop-shadow(0 0 6px rgba(209,179,255,0.5));
+}
+
+.navItem.active .navLabel {
+  color: var(--color-primary);
+  font-weight: 700;
+}
+
+.activeIndicator {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 28px;
+  height: 3px;
+  background: var(--gradient-primary);
+  border-radius: 0 0 var(--radius-sm) var(--radius-sm);
+  animation: scaleIn 0.2s ease both;
+}

@@ -1,0 +1,39 @@
+.seccion {
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  transition: var(--transition-base);
+}
+
+.seccionHeader {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+  padding: var(--space-md) var(--space-lg);
+  background: none;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+  font-family: var(--font-base);
+  transition: var(--transition-fast);
+}
+
+.seccionHeader:active { background: rgba(255,255,255,0.03); }
+
+.chevron {
+  margin-left: auto;
+  font-size: 1.2rem;
+  color: var(--color-text-muted);
+  transition: transform 0.3s ease;
+  display: inline-block;
+}
+
+.chevronOpen { transform: rotate(90deg); }
+
+.seccionBody {
+  padding: 0 var(--space-lg) var(--space-lg);
+  border-top: 1px solid var(--glass-border);
+  animation: fadeInUp 0.25s ease both;
+}

@@ -1,0 +1,45 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.streakBadge {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  background: rgba(233,30,140,0.15);
+  border: 1px solid rgba(255,179,217,0.3);
+  border-radius: var(--radius-full);
+  padding: 6px 12px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--color-accent);
+}
+
+.weightCard {
+  background: linear-gradient(135deg, rgba(209,179,255,0.08) 0%, rgba(98,0,238,0.12) 100%);
+}
+
+.brainCard {
+  cursor: default;
+}
+
+.rutinaDias {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+.diaCard {
+  transition: var(--transition-fast);
+}
+
+.diaCard:active {
+  transform: scale(0.99);
+}
+
+.emptyState {
+  text-align: center;
+  padding: var(--space-2xl) var(--space-lg);
+}
